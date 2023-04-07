@@ -1,9 +1,9 @@
 ﻿
-using BulkyBookWeb.Data;
-using BulkyBookWeb.Models;
+using BulkyBook.Data;
+using BulkyBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BulkyBookWeb.Controllers;
+namespace BulkyBook.Controllers;
 public class CategoryController : Controller
 {
     private readonly ApplicationDbContext _db;
