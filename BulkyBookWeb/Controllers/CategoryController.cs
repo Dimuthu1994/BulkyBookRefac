@@ -52,9 +52,9 @@ public class CategoryController : Controller
         {
             return NotFound();
         }
-        //var category = _db.Categories.FirstOrDefault(c => c.Id == id);
-        // var categoryFromDbFirst = _db.Categories.SingleOrDefault(c => c.Id == id);
-        var categoryFromDb = _db.Categories.Find(id);
+        var categoryFromDb = _db.Categories.FirstOrDefault(c => c.Name == "id");
+        //var categoryFromDbFirst = _db.Categories.SingleOrDefault(c => c.Id == id);
+        //var categoryFromDb = _db.Categories.Find(id);
 
         if (categoryFromDb == null)
         {
