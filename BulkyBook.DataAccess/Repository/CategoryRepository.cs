@@ -1,4 +1,4 @@
-﻿using BulkyBook.Data;
+﻿
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using System;
@@ -24,7 +24,7 @@ namespace BulkyBook.DataAccess.Repository
 
         public void Update(Category obj)
         {
-           _db.Categories.Update(obj);
+            _db.Categories.Update(obj);
         }
     }
 }
