@@ -1,10 +1,10 @@
-﻿
-using BulkyBook.DataAccess;
+﻿using BulkyBook.DataAccess;
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BulkyBook.Controllers;
+namespace BulkyBookWeb.Areas.Admin.Controllers;
+[Area("Admin")]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -95,7 +95,7 @@ public class CategoryController : Controller
         //var category = _db.Categories.FirstOrDefault(c => c.Id == id);
         // var categoryFromDbFirst = _db.Categories.SingleOrDefault(c => c.Id == id);
         //var categoryFromDb = _db.Categories.Find(id);
-        var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(u =>u.Id == id);
+        var categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
 
         if (categoryFromDb == null)
         {
@@ -110,11 +110,11 @@ public class CategoryController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Delete(Category obj)
     {
-      
+
         _unitOfWork.Category.Remove(obj);
         _unitOfWork.Save();
         TempData["success"] = "Category deleted Successfully";
         return RedirectToAction("Index");
-     
+
     }
 }
