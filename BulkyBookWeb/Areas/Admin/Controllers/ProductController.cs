@@ -2,6 +2,7 @@
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers;
 [Area("Admin")]
@@ -25,6 +26,19 @@ public class ProductController : Controller
     public IActionResult Upsert(int? id)
     {
         Product product = new();
+        IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(
+            u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString()
+            });
+        IEnumerable<SelectListItem> CoverTypeList = _unitOfWork.CoverType.GetAll().Select(
+          u => new SelectListItem
+          {
+              Text = u.Name,
+              Value = u.Id.ToString()
+          });
+
         if (id == null || id == 0)
         {
             //create product
