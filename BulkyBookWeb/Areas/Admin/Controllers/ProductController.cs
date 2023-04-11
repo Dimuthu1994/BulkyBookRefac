@@ -52,10 +52,10 @@ public class ProductController : Controller
         else
         {
             //update product
-        }
-        
-
-        return View(productVM);
+            productVM.Product = _unitOfWork.Product.GetFirstOrDefault(i => i.Id == id);
+			return View(productVM);
+		}
+    
     }
 
     //POST
