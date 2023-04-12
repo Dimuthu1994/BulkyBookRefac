@@ -2,8 +2,8 @@
 @model BulkyBook.Models.ViewModels.ProductVM
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
-	<input asp-for="Product.Id" hidden/>
-	<input asp-for="Product.ImageUrl" hidden/>
+	<input asp-for="Product.Id" hidden />
+	<input asp-for="Product.ImageUrl" hidden />
 
 	<div class="row">
 		<div class="col-10">
@@ -88,7 +88,7 @@
 		</div>
 		<div class="col-2 pt-4">
 			<img src="@Model.Product.ImageUrl"
-			width="100%" style="border-radius:5px;border:1px solid #bbb9b9"/>
+			width="100%" style="border-radius:5px; border:1px solid #bbb9b9"/>
 		</div>
 	</div>
 </form>

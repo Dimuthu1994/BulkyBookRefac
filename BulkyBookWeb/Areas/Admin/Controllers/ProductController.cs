@@ -95,7 +95,7 @@ public class ProductController : Controller
             {
 				_unitOfWork.Product.Update(obj.Product);
 			}
-            _unitOfWork.Product.Add(obj.Product);
+            
             _unitOfWork.Save();
             TempData["success"] = "Product Created Successfully";
             return RedirectToAction("Index");
